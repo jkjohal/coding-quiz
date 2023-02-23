@@ -58,7 +58,7 @@ function showQuestion(){
     for (var i = 0; i < currentQuestion.choices.length; i++){
         var choice = currentQuestion.choices[i];
         var choiceNode = document.createElement("button");
-        choiceNode.setAttribute("class", "choice waves-effect waves-light btn");
+        choiceNode.setAttribute("class", "choice waves-effect waves-light btn blue darken-4");
         choiceNode.setAttribute("value", choice);
 
         choiceNode.textContent = i + 1 + ". " + choice;
@@ -89,7 +89,7 @@ function selectAnswer(event) {
         feedback.textContent = "Correct!"
     }
 
-    feedback.setAttribute("class", "feedback");
+    feedback.setAttribute("class", "feedback center-align");
     setTimeout(function(){
         feedback.setAttribute("class", "feedback hide");
     }, 1000);

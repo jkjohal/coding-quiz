@@ -7,4 +7,4 @@
 
 This application allows the user to take a short quiz about coding-related questions.  Once the quiz has started, a countdown begins and users will have to answer questions within the time limit.  For each incorrect answer, time will be subtracted.  Once the quiz is over, the user can save their score and initials.
 
-## [Deployed Application]()
+## [Deployed Application](https://jkjohal.github.io/coding-quiz/)

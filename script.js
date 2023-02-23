@@ -101,6 +101,19 @@ function selectAnswer(event) {
     } else {
         showQuestion();
     }
-}
+};
+
+function endQuiz(){
+
+    clearInterval(timerId);
+
+    var endScreen = document.querySelector("#end-screen");
+    endScreen.removeAttribute("class")
+
+    var finalScore = document.querySelector("#final-score");
+    finalScore.textContent = time;
+
+    questionArea.setAttribute("class", "hide");
+};
 
 startBtn.addEventListener("click", startGame);

@@ -152,3 +152,9 @@ function checkForEnter(event){
 }
 
 startBtn.addEventListener("click", startGame);
+
+submitBtn.addEventListener("click", saveScore);
+
+choices.addEventListener("click", selectAnswer);
+
+initials.addEventListener("onkeyup", checkForEnter);

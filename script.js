@@ -49,7 +49,7 @@ function startGame() {
 function showQuestion(){
     var currentQuestion = quizQuestions[currentQuestionIndex];
 
-    var questionTitle = document.querySelector(#question-title);
+    var questionTitle = document.querySelector("#question-title");
     questionTitle.textContent = currentQuestion.title;
 
     choices.innerHTML = "";
@@ -57,12 +57,30 @@ function showQuestion(){
     for (var i = 0; i < currentQuestion.choices.length; i++){
         var choice = currentQuestion.choices[i];
         var choiceNode = document.createElement("button");
-        choiceNode.setAttribute("class", "choice");
+        choiceNode.setAttribute("class", "choice waves-effect waves-light btn");
         choiceNode.setAttribute("value", choice);
 
         choiceNode.textContent = i + 1 + ". " + choice;
 
         choices.appendChild(choiceNode);
+    }
+};
+
+function selectAnswer(event) {
+    var buttonEl = event.target;
+
+    if (!buttonEl.matches('.choice')){
+        return;
+    };
+
+    if (buttonEl.value !== quizQuestions[currentQuestionIndex].answer){
+        time -= 10;
+
+        if (time < 0) {
+            time = 0;
+        }
+
+        timer.textContent = time;
     }
 }
 

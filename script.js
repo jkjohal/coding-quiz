@@ -44,6 +44,26 @@ function startGame() {
     timer.textContent = time;
 
     showQuestion();
+};
+
+function showQuestion(){
+    var currentQuestion = quizQuestions[currentQuestionIndex];
+
+    var questionTitle = document.querySelector(#question-title);
+    questionTitle.textContent = currentQuestion.title;
+
+    choices.innerHTML = "";
+
+    for (var i = 0; i < currentQuestion.choices.length; i++){
+        var choice = currentQuestion.choices[i];
+        var choiceNode = document.createElement("button");
+        choiceNode.setAttribute("class", "choice");
+        choiceNode.setAttribute("value", choice);
+
+        choiceNode.textContent = i + 1 + ". " + choice;
+
+        choices.appendChild(choiceNode);
+    }
 }
 
 startBtn.addEventListener("click", startGame);

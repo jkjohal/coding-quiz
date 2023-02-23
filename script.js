@@ -116,4 +116,39 @@ function endQuiz(){
     questionArea.setAttribute("class", "hide");
 };
 
+function clockTick(){
+    time--;
+    timer.textContent = time;
+
+    if (time <= 0){
+        endQuiz();
+    }
+};
+
+function saveScore() {
+    var userInitials = initials.value.trim();
+
+    if (userInitials !== ""){
+
+        var highscores = 
+        JSON.parse(window.localStorage.getItem("highscores")) || [];
+
+        var newScore = {
+            score: time,
+            userInitials: userInitials,
+        };
+
+        highscores.push(newScore);
+        window.localStorage.setItem("highscores", JSON.stringify(highscores));
+
+        window.location.href = "scores.html"
+    }
+};
+
+function checkForEnter(event){
+    if(event.key === "Enter"){
+        saveScore();
+    }
+}
+
 startBtn.addEventListener("click", startGame);

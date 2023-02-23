@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <nav>
+        <div class="nav-wrapper">
+            <div class="scores"><a href="scores.html">View Highscores</a></div>
+            <div class="timer">Time: <span id="time">0</span></div>
+        </div>
+    </nav>
+
     <div id="start-screen">
         <h1 class="center-align">Coding Quiz!</h1>
         <h2 class="center-align">Answer the following code-related questions within the time limit.  Incorrect answers will penalize your score/time by 10 seconds!</h2>
@@ -19,7 +26,15 @@
 
     <div id="questions" class="hide">
         <h2 id="question-title"></h2>
-        <div id="answer-choices" class="answer-choices"></div>
+        <div id="answer-choices" class="answer-choices">
+            <button class="option" id="op1" >option1</button>
+     
+            <button class="option" id="op2" >option2</button>
+     
+            <button class="option" id="op3">option3</button>
+     
+            <button class="option" id="op4">option4</button>
+        </div>
     </div>
 
     <div id="end-screen" class="hide">

@@ -2,42 +2,30 @@
 //quiz questions
 const quizQuestions = [
     {
-        id:0,
-        q: "One of the most popular Git repository hosts is called...",
-        a: [
-            { text: "Gethub", isCorrect: false },
-            { text: "Gothub", isCorrect: false },
-            { text: "Github", isCorrect: true },
-            { text: "Greathub", isCorrect: false },
-            
-            ] 
+        title: "One of the most popular Git repository hosts is called...",
+        choices: ["Gethub", "Gothub", "Github", "Greathub"],
+        answer: "Github" 
     },
     
     {
-        id:1,
-        q: "CSS stands for...",
-        a: [
-            { text: "Cold salami sandwich", isCorrect: false },
-            { text: "Cascading sheet styling", isCorrect: false },
-            { text: "Cascading style sheets", isCorrect: true },
-            { text: "Computer science school", isCorrect: false },
-            ]
+        title: "CSS stands for...",
+        choices: ["Cold salami sandwich", "Cascading style sheets", "Cascading sheet styling", "Computer science school"],
+        answer: "Cascading style sheets"
     },
 
     {
-        id:2,
-        q: "Which of the following will you NOT gain from a coding course?",
-        a: [
-            { text: "New skills", isCorrect: false },
-            { text: "Knowledge about coding", isCorrect: false },
-            { text: "Weight", isCorrect: true },
-            { text: "Troubleshooting abilities", isCorrect: false },
-            ]
-
+        title: "Which of the following will you NOT gain from a coding course?",
+        choices: ["New skills", "Knowledge about coding", "Troubleshooting abilities", "Weight"],
+        answer: "Weight"
     }
 ]            
 
 //quiz logic
+
+var currentQuestionIndex = 0;
+var time = quizQuestions.length * 20;
+var timerId;
+
 const startBtn = document.querySelector("#start-btn")
 const questionArea = document.querySelector("#questions")
 const timer = document.querySelector("#time")
@@ -46,5 +34,16 @@ const submitBtn = document.querySelector("#submit")
 const initials = document.querySelector("#initials")
 
 function startGame() {
+    var startScreen = document.querySelector("#start-screen");
+    startScreen.setAttribute("class","hide");
 
+    questionArea.removeAttribute("class");
+
+    timerId = setInterval(clockTick, 1000);
+
+    timer.textContent = time;
+
+    showQuestion();
 }
+
+startBtn.addEventListener("click", startGame);

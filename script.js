@@ -32,6 +32,7 @@ const timer = document.querySelector("#time")
 const choices = document.querySelector("#answer-choices")
 const submitBtn = document.querySelector("#submit")
 const initials = document.querySelector("#initials")
+const feedback = document.querySelector("#feedback")
 
 function startGame() {
     var startScreen = document.querySelector("#start-screen");
@@ -81,6 +82,24 @@ function selectAnswer(event) {
         }
 
         timer.textContent = time;
+        
+        feedback.textContent = "Incorrect!"
+    } else {
+
+        feedback.textContent = "Correct!"
+    }
+
+    feedback.setAttribute("class", "feedback");
+    setTimeout(function(){
+        feedback.setAttribute("class", "feedback hide");
+    }, 1000);
+
+    currentQuestionIndex++;
+
+    if (time <= 0 || currentQuestionIndex === quizQuestions.length){
+        endQuiz();
+    } else {
+        showQuestion();
     }
 }
 

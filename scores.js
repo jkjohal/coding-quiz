@@ -1,3 +1,4 @@
+//function to get highscores from local storage and display on page
 function showHighscores(){
     var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
 
@@ -15,7 +16,7 @@ function showHighscores(){
     }
 };
 
-
+//function to clear scores from local storage
 function clearScores(){
     window.localStorage.removeItem('highscores');
     window.location.reload();

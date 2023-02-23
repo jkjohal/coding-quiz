@@ -34,6 +34,8 @@ const submitBtn = document.querySelector("#submit")
 const initials = document.querySelector("#initials")
 const feedback = document.querySelector("#feedback")
 
+
+//function to begin game
 function startGame() {
     var startScreen = document.querySelector("#start-screen");
     startScreen.setAttribute("class","hide");
@@ -47,6 +49,7 @@ function startGame() {
     showQuestion();
 };
 
+//function to show quiz questions
 function showQuestion(){
     var currentQuestion = quizQuestions[currentQuestionIndex];
 
@@ -67,6 +70,7 @@ function showQuestion(){
     }
 };
 
+//function to handle when users select a quiz answer
 function selectAnswer(event) {
     var buttonEl = event.target;
 
@@ -103,6 +107,8 @@ function selectAnswer(event) {
     }
 };
 
+
+//function for when the quiz ends
 function endQuiz(){
 
     clearInterval(timerId);
@@ -116,6 +122,7 @@ function endQuiz(){
     questionArea.setAttribute("class", "hide");
 };
 
+//function for countdown timer
 function clockTick(){
     time--;
     timer.textContent = time;
@@ -125,6 +132,7 @@ function clockTick(){
     }
 };
 
+//function to save score
 function saveScore() {
     var userInitials = initials.value.trim();
 
@@ -151,6 +159,8 @@ function checkForEnter(event){
     }
 }
 
+
+//event listeners to set off different functions for gameplay
 startBtn.addEventListener("click", startGame);
 
 submitBtn.addEventListener("click", saveScore);

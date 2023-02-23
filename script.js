@@ -38,7 +38,13 @@ const quizQuestions = [
 ]            
 
 //quiz logic
-const start = document.querySelector(#start-btn)
-const questionArea = document.querySelector(#questions)
+const startBtn = document.querySelector("#start-btn")
+const questionArea = document.querySelector("#questions")
+const timer = document.querySelector("#time")
+const choices = document.querySelector("#answer-choices")
+const submitBtn = document.querySelector("#submit")
+const initials = document.querySelector("#initials")
 
-function startGame
+function startGame() {
+
+}
